@@ -40,10 +40,10 @@ Image.prototype.__defineSetter__('src', function (src) {
 
     function buffer2image (buffer) {
         var image = new CanvasImage();
-        //if (self.onload) {
-        //    self.onload.apply(image);
-        //}
-        image.onload = () => resolve(image);
+        if (self.onload) {
+            self.onload.apply(image);
+        }
+        //image.onload = () => resolve(image);
         image.onerror = () => console.log('Failed to load image:', OnConvert(buffer.toString('hex')));
         image.src = buffer;
 
