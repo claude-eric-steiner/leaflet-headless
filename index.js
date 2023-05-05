@@ -6,19 +6,24 @@
 
 var jsdom = require('jsdom');
 const { JSDOM } = jsdom;
-var path = require('path');
-
-if (!global.L) {
-    // make some globals to fake browser behaviour.
-    global.document = new jsdom.JSDOM('<html><head></head><body></body></html>', {
+const { document } = new jsdom.JSDOM('<html><head></head><body></body></html>', {
         features: {
             FetchExternalResources: ['img']
         }
     }).window;
-    console.log(global.document);
-    global.window = global.document;
-    global.window.navigator.userAgent = 'webkit';
-    global.navigator = global.window.navigator;
+var path = require('path');
+
+if (!global.L) {
+    // make some globals to fake browser behaviour.
+    //global.document = new jsdom.JSDOM('<html><head></head><body></body></html>', {
+    //    features: {
+    //        FetchExternalResources: ['img']
+    //    }
+    //}).window;
+    //console.log(global.document);
+    //global.window = global.document;
+    //global.window.navigator.userAgent = 'webkit';
+    //global.navigator = global.window.navigator;
     global.Image = require('./src/image.js');
 
     global.L_DISABLE_3D = true;
