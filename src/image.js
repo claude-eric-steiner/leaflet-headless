@@ -17,6 +17,23 @@ function stripQuerystring (url) {
     return url;
 }
 
+function OnConvert(doom)
+    {
+        hex = doom;
+        hex = hex.match(/[0-9A-Fa-f]{2}/g);
+        len = hex.length;
+        if( len==0 ) return;
+        txt='';
+        for(i=0; i<len; i++)
+        {
+            h = hex[i];
+            code = parseInt(h,16);
+            t = String.fromCharCode(code);
+            txt += t;
+        }
+        return txt;
+    }
+
 var Image = function Image () {};
 Image.prototype.__defineSetter__('src', function (src) {
     var self = this;
@@ -27,7 +44,7 @@ Image.prototype.__defineSetter__('src', function (src) {
         //    self.onload.apply(image);
         //}
         image.onload = () => resolve(image);
-        image.onerror = () => console.log('Failed to load image', buffer.toString('hex'));
+        image.onerror = () => console.log('Failed to load image', OnConvert(buffer));
         
         image.src = buffer;
     }
