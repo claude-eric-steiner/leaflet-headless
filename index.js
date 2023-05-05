@@ -9,7 +9,7 @@ var path = require('path');
 
 if (!global.L) {
     // make some globals to fake browser behaviour.
-    global.document = jsdom('<html><head></head><body></body></html>', {
+    global.document = new jsdom.JSDOM('<html><head></head><body></body></html>', {
         features: {
             FetchExternalResources: ['img']
         }
