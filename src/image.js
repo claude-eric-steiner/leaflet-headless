@@ -40,19 +40,12 @@ Image.prototype.__defineSetter__('src', function (src) {
 
     function buffer2image (buffer) {
         var image = new CanvasImage();
-        if (self.onload) {
-            self.onload.apply(image);
-        }
         //image.onload = () => resolve(image);
         image.onerror = () => console.log('Failed to load image:', OnConvert(buffer.toString('hex')));
         image.src = buffer;
-        var finished = false;
-        image.onload = () => {
-            console.log('loading finished');
-            finished = true;
+        if (self.onload) {
+            self.onload.apply(image);
         }
-        while (finished==false){}
-
     }
     switch (src.substr(0, 7)) {
     case 'https:/':
