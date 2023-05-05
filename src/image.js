@@ -23,9 +23,12 @@ Image.prototype.__defineSetter__('src', function (src) {
 
     function buffer2image (buffer) {
         var image = new CanvasImage();
-        if (self.onload) {
-            self.onload.apply(image);
-        }
+        //if (self.onload) {
+        //    self.onload.apply(image);
+        //}
+        image.onload = () => resolve(image);
+        image.onerror = () => reject(new Error('Failed to load image'));
+        
         image.src = buffer;
     }
     switch (src.substr(0, 7)) {
@@ -36,8 +39,8 @@ Image.prototype.__defineSetter__('src', function (src) {
                 console.error('Could not get url', err);
                 return;
             }
-            console.log(res);
-            console.log(buffer);            
+            //console.log(res);
+            //console.log(buffer);            
             buffer2image(buffer);
         });
         break;            
