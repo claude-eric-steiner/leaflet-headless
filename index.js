@@ -6,11 +6,12 @@
 
 var jsdom = require('jsdom');
 const { JSDOM } = jsdom;
-const { document } = new jsdom.JSDOM('<html><head></head><body></body></html>', {
+const { window } = new jsdom.JSDOM('<html><head></head><body></body></html>', {
         features: {
             FetchExternalResources: ['img']
         }
-    }).window;
+    });
+const { document } = window.window;
 var path = require('path');
 
 if (!global.L) {
