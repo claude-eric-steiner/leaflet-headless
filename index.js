@@ -16,6 +16,7 @@ var path = require('path');
 
 global.window = window;
 global.document = document;
+global.navigator = global.window.navigator;
 
 if (!global.L) {
     // make some globals to fake browser behaviour.
