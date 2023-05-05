@@ -15,7 +15,7 @@ if (!global.L) {
         }
     }).window;
     console.log(global.document);
-    global.window = new JSDOM();
+    global.window = new jsdom();
     global.window.navigator.userAgent = 'webkit';
     global.navigator = global.window.navigator;
     global.Image = require('./src/image.js');
