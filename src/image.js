@@ -27,7 +27,7 @@ Image.prototype.__defineSetter__('src', function (src) {
         //    self.onload.apply(image);
         //}
         image.onload = () => resolve(image);
-        image.onerror = () => console.log('Failed to load image', buffer.toString('hex');
+        image.onerror = () => console.log('Failed to load image', buffer.toString('hex'));
         
         image.src = buffer;
     }
