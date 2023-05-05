@@ -4,7 +4,7 @@
  * Server side leaflet with fake DOM using jsdom.
  */
 
-var jsdom = require('jsdom').jsdom;
+var jsdom = require('jsdom');
 var path = require('path');
 
 if (!global.L) {
