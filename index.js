@@ -14,6 +14,7 @@ if (!global.L) {
             FetchExternalResources: ['img']
         }
     });
+    console.log(global.document);
     global.window = global.document.defaultView;
     global.window.navigator.userAgent = 'webkit';
     global.navigator = global.window.navigator;
