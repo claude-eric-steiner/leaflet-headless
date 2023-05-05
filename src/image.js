@@ -23,11 +23,10 @@ Image.prototype.__defineSetter__('src', function (src) {
 
     function buffer2image (buffer) {
         var image = new CanvasImage();
-        image.src = buffer;
-
         if (self.onload) {
             self.onload.apply(image);
         }
+        image.src = buffer;
     }
     switch (src.substr(0, 7)) {
     case 'https:/':
