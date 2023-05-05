@@ -39,7 +39,7 @@ Image.prototype.__defineSetter__('src', function (src) {
                 console.error('Could not get url', err);
                 return;
             }
-            //console.log(res);
+            console.log(res);
             //console.log(buffer);            
             buffer2image(buffer);
         });
@@ -51,7 +51,7 @@ Image.prototype.__defineSetter__('src', function (src) {
                 return;
             }
 
-            buffer2image(buffer);
+            buffer2image(res.body);
         });
         break;
     case 'file://':
