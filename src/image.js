@@ -51,8 +51,13 @@ Image.prototype.__defineSetter__('src', function (src) {
     switch (src.substr(0, 7)) {
     case 'https:/':
         console.log(src);
-        request.setHeader('User-Agent', ['Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/112.0']);
-        request.get(src, function (err, res, buffer) {
+        var options = {
+            url: src,
+            headers: {
+                'User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/112.0'
+            }
+        }
+        request.get(options, function (err, res, buffer) {
             if (err) {
                 console.error('Could not get url', err);
                 return;
