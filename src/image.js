@@ -37,7 +37,7 @@ Image.prototype.__defineSetter__('src', function (src) {
                 console.error('Could not get url', err);
                 return;
             }
-            console.log(buffer.length);
+            console.log(buffer);
             buffer2image(buffer);
         });
         break;            
