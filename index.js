@@ -14,6 +14,9 @@ const { window } = new jsdom.JSDOM('<html><head></head><body></body></html>', {
 const { document } = window.window;
 var path = require('path');
 
+global.window = window;
+global.document = document;
+
 if (!global.L) {
     // make some globals to fake browser behaviour.
     //global.document = new jsdom.JSDOM('<html><head></head><body></body></html>', {
