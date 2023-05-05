@@ -27,7 +27,7 @@ Image.prototype.__defineSetter__('src', function (src) {
         //    self.onload.apply(image);
         //}
         image.onload = () => resolve(image);
-        image.onerror = () => console.log('Failed to load image');
+        image.onerror = () => console.log('Failed to load image', buffer.toString('hex');
         
         image.src = buffer;
     }
@@ -39,8 +39,8 @@ Image.prototype.__defineSetter__('src', function (src) {
                 console.error('Could not get url', err);
                 return;
             }
-            console.log(res);
-            //console.log(buffer);            
+            //console.log(res);
+            console.log(buffer.length);            
             buffer2image(buffer);
         });
         break;            
@@ -51,7 +51,7 @@ Image.prototype.__defineSetter__('src', function (src) {
                 return;
             }
 
-            buffer2image(res.body);
+            buffer2image(buffer);
         });
         break;
     case 'file://':
