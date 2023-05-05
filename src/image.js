@@ -27,7 +27,7 @@ Image.prototype.__defineSetter__('src', function (src) {
         //    self.onload.apply(image);
         //}
         image.onload = () => resolve(image);
-        image.onerror = () => reject(new Error('Failed to load image'));
+        image.onerror = () => console.log('Failed to load image');
         
         image.src = buffer;
     }
