@@ -5,6 +5,7 @@
  */
 
 var jsdom = require('jsdom');
+const { JSDOM } = jsdom;
 var path = require('path');
 
 if (!global.L) {
@@ -15,7 +16,7 @@ if (!global.L) {
         }
     }).window;
     console.log(global.document);
-    global.window = new jsdom();
+    global.window = global.document;
     global.window.navigator.userAgent = 'webkit';
     global.navigator = global.window.navigator;
     global.Image = require('./src/image.js');
