@@ -16,6 +16,7 @@ var path = require('path');
 
 global.window = window;
 global.document = document;
+global.window.navigator.userAgent = 'webkit';
 global.navigator = global.window.navigator;
 
 if (!global.L) {
