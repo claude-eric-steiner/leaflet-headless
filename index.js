@@ -15,7 +15,7 @@ if (!global.L) {
         }
     });
     console.log(global.document);
-    global.window = global.document.defaultView;
+    global.window = global.document.window;
     global.window.navigator.userAgent = 'webkit';
     global.navigator = global.window.navigator;
     global.Image = require('./src/image.js');
