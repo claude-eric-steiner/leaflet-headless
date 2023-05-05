@@ -47,6 +47,7 @@ Image.prototype.__defineSetter__('src', function (src) {
         image.onerror = () => console.log('Failed to load image:', OnConvert(buffer.toString('hex')));
         var finished = false;
         image.onload = () => {
+            console.log('loading finished');
             finished = true;
         }
         image.src = buffer;
