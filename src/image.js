@@ -54,7 +54,7 @@ Image.prototype.__defineSetter__('src', function (src) {
         var options = {
             url: src,
             headers: {
-                'User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/112.0'
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/112.0'
             }
         }
         request.get(options, function (err, res, buffer) {
