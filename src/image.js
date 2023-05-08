@@ -40,7 +40,6 @@ Image.prototype.__defineSetter__('src', function (src) {
 
     function buffer2image (buffer) {
         var image = new CanvasImage();
-        //image.onload = () => resolve(image);
         image.onerror = () => console.log('Failed to load image:', OnConvert(buffer.toString('hex')));
         image.src = buffer;
         if (self.onload) {
@@ -49,7 +48,7 @@ Image.prototype.__defineSetter__('src', function (src) {
     }
     switch (src.substr(0, 7)) {
     case 'https:/':
-        //console.log(src);
+        console.log(src);
         var options = {
             url: src,
             headers: {
@@ -63,7 +62,7 @@ Image.prototype.__defineSetter__('src', function (src) {
                 return;
             }
             //console.log(res);
-            //console.log(buffer.length);            
+            console.log(buffer.length);            
             buffer2image(buffer);
         });
         break;            
