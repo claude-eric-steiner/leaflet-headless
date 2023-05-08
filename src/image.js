@@ -48,7 +48,7 @@ Image.prototype.__defineSetter__('src', function (src) {
     }
     switch (src.substr(0, 7)) {
     case 'https:/':
-        console.log(src);
+        //console.log(src);
         var options = {
             url: src,
             headers: {
